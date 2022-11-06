@@ -61,6 +61,7 @@
           <input
             v-if="edit"
             type="text"
+            required
             class="p-2 w-full text-gray-500 focus:outline-none"
             v-model="data.workoutName"
           />
@@ -119,6 +120,7 @@
                 type="number"
                 name="distance"
                 id="distance"
+                required
                 class="p-2 w-full text-gray-500 focus:outline-none"
                 v-model="item.distance"
               />
@@ -136,6 +138,7 @@
                 type="text"
                 name="duration"
                 id="duration"
+                required
                 class="p-2 w-full text-gray-500 focus:outline-none"
                 v-model="item.duration"
               />
@@ -153,6 +156,7 @@
                 type="text"
                 name="pace"
                 id="pace"
+                required
                 class="p-2 w-full text-gray-500 focus:outline-none"
                 v-model="item.pace"
               />
@@ -198,6 +202,7 @@
                 type="text"
                 name="exercise-name"
                 id="exercise-name"
+                required
                 class="p-2 w-full text-gray-500 focus:outline-none"
                 v-model="item.exercise"
               />
@@ -215,6 +220,7 @@
                 type="text"
                 name="sets"
                 id="sets"
+                required
                 class="p-2 w-full text-gray-500 focus:outline-none"
                 v-model="item.sets"
               />
@@ -232,6 +238,7 @@
                 type="text"
                 name="reps"
                 id="reps"
+                required
                 class="p-2 w-full text-gray-500 focus:outline-none"
                 v-model="item.reps"
               />
@@ -249,6 +256,7 @@
                 type="text"
                 name="weight"
                 id="weight"
+                required
                 class="p-2 w-full text-gray-500 focus:outline-none"
                 v-model="item.weight"
               />

@@ -2,7 +2,7 @@
   <Navigation />
   <router-view />
   <div v-if="appReady" class="min-h-full font-Poppins box-border">
-    <h1>App is ready</h1>
+    <h1 class="note">App is ready</h1>
   </div>
   <div v-else>
     <h2>Not Ready</h2>
@@ -43,4 +43,10 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+.note {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
 </style>
