@@ -30,7 +30,7 @@
 import store from "../store";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
-import { supabase } from "../supabase/init";
+import { getSupabase } from "../supabase/init";
 export default {
   setup() {
     // Get the user from store:
@@ -41,7 +41,7 @@ export default {
 
     // Logout function:
     const logout = async () => {
-      await supabase.auth.signOut();
+      await getSupabase().auth.signOut();
       router.push({ name: "Home" });
     };
 

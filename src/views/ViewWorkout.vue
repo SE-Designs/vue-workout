@@ -296,7 +296,7 @@
 
 <script>
 import { ref, computed } from "vue";
-import { supabase } from "../supabase/init";
+import { getSupabase } from "../supabase/init";
 import { useRoute, useRouter } from "vue-router";
 import store from "../store/index";
 import { uid } from "uid";
@@ -318,7 +318,7 @@ export default {
     // Get Data:
     const getData = async () => {
       try {
-        const { data: workouts, error } = await supabase
+        const { data: workouts, error } = await getSupabase()
           .from("workouts")
           .select("*")
           .eq("id", currentId);
@@ -338,7 +338,7 @@ export default {
     // Delete workout data:
     const deleteWorkout = async () => {
       try {
-        const { error } = await supabase
+        const { error } = await getSupabase()
           .from("workouts")
           .delete()
           .eq("id", currentId);
@@ -404,7 +404,7 @@ export default {
     // Update workout data:
     const updateWorkout = async () => {
       try {
-        const { error } = await supabase
+        const { error } = await getSupabase()
           .from("workouts")
           .update({
             workoutName: data.value.workoutName,

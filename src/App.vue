@@ -12,7 +12,7 @@
 <script>
 import { ref } from "vue";
 import store from "./store/index";
-import { supabase } from "./supabase/init";
+import { getSupabase } from "./supabase/init";
 import Navigation from "./components/Navigation.vue";
 export default {
   components: {
@@ -23,7 +23,7 @@ export default {
     const appReady = ref(null);
 
     // Check if the user is already logged in:
-    const user = supabase.auth.getSession();
+    const user = getSupabase().auth.getSession();
 
     // If the user does not exist, make app ready:
     if (!user) {
@@ -31,7 +31,7 @@ export default {
     }
 
     // On auth state change:
-    supabase.auth.onAuthStateChange((_, session) => {
+    getSupabase().auth.onAuthStateChange((_, session) => {
       store.methods.setUser(session);
       appReady.value = true;
     });

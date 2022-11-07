@@ -59,7 +59,7 @@
 
 <script>
 import { ref } from "vue";
-import { supabase } from "../supabase/init";
+import { getSupabase } from "../supabase/init";
 import { useRouter } from "vue-router";
 export default {
   name: "register",
@@ -74,10 +74,12 @@ export default {
     // Login function:
     const login = async () => {
       try {
-        const { error } = await supabase.auth.signInWithPassword({
+        const { error } = await getSupabase().auth.signInWithPassword({
           email: email.value,
           password: password.value,
         });
+
+        console.log(error);
 
         if (error) throw error;
         router.push({ name: "Home" });

@@ -49,7 +49,7 @@
 
 <script>
 import { ref } from "vue";
-import { supabase } from "../supabase/init";
+import { getSupabase } from "../supabase/init";
 export default {
   name: "home",
   components: {},
@@ -61,7 +61,7 @@ export default {
     // Get Data:
     const getData = async () => {
       try {
-        const { data: workouts, error } = await supabase
+        const { data: workouts, error } = await getSupabase()
           .from("workouts")
           .select("*");
         if (error) throw error;

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { supabase } from "../supabase/init";
+import { getSupabase } from "../supabase/init";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
@@ -67,15 +67,13 @@ router.beforeEach((to, from, next) => {
 });
 
 // Route guards for auth:
-router.beforeEach((to, from, next) => {
-  const { user } = supabase.auth.getUser();
+router.beforeEach(async (to, from, next) => {
   if (to.matched.some((res) => res.meta.auth)) {
-    if (user) {
-      next();
+    const { error } = await getSupabase().auth.getUser();
+    if (error) {
+      next({ name: "Login" });
       return;
     }
-    next({ name: "Login" });
-    return;
   }
   next();
 });

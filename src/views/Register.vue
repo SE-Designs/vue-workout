@@ -71,7 +71,7 @@
 
 <script>
 import { ref } from "vue";
-import { supabase } from "../supabase/init";
+import { getSupabase } from "../supabase/init";
 import { useRouter } from "vue-router";
 
 export default {
@@ -89,7 +89,7 @@ export default {
     const register = async () => {
       if (password.value === confirmPassword.value) {
         try {
-          const { error } = await supabase.auth.signUp({
+          const { error } = await getSupabase().auth.signUp({
             email: email.value,
             password: password.value,
           });
