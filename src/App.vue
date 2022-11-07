@@ -2,10 +2,10 @@
   <Navigation />
   <router-view />
   <div v-if="appReady" class="min-h-full font-Poppins box-border">
-    <h1 class="note">App is ready</h1>
+    <h2 class="note">Logged In</h2>
   </div>
   <div v-else>
-    <h2>Not Ready</h2>
+    <h2 class="note">Not Logged In</h2>
   </div>
 </template>
 

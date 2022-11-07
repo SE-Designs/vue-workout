@@ -5,3 +5,30 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 ## Recommended IDE Setup
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+
+## Setup
+
+Make sure to install the dependencies:
+
+```bash
+# yarn
+yarn install
+
+# npm
+npm install
+
+# pnpm
+pnpm install --shamefully-hoist
+```
+
+## Development Server
+
+Start the development server on http://localhost:3001
+
+```bash
+npm run dev
+```
+
+## Deployment:
+
+You can access the server at **https://vue-workout.vercel.app**
